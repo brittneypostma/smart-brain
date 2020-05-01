@@ -1,8 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
+const Container = styled.div`
+  display: grid;
+  justify-content: center;
+`
+
 const Form = styled.div`
-  width: 700px;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
   background:
   radial-gradient(circle farthest-side at 0% 50%,#fb1 23.5%,rgba(240,166,17,0) 0)21px 30px,
   radial-gradient(circle farthest-side at 0% 50%,#B71 24%,rgba(240,166,17,0) 0)19px 30px,
@@ -13,18 +21,29 @@ const Form = styled.div`
   background-size:40px 60px;
 `
 
-const ImageLinkForm = ({ onInputChange }) => {
-  const [input, setInput] = useState('')
+const Input = styled.input`
+  height: 35px;
+  width: 100%;
+`
+
+const Button = styled.button`
+  padding: 8px;
+  outline: none;
+  margin-left: 10px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  background-color: #BB7711;
+`
+
+const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
   return (
-    <div>
-      <p>
-        {'This Magic Brain will detects faces in your picture.'}
-      </p>
+    <Container>
       <Form>
-        <input type="text" onChange={onInputChange} />
-        <button>Detect</button>
+        <Input type="text" onChange={onInputChange} />
+        <Button onClick={onButtonSubmit}>Detect</Button>
       </Form>
-    </div >
+    </Container>
   )
 }
 
