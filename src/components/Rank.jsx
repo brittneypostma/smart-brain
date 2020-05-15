@@ -5,7 +5,6 @@ const Container = styled.div`
   color: white;
   font-size: 24px;
   display: grid;
-  font-family: "Courier New", Courier, monospace;
 `
 
 const Black = styled.p`

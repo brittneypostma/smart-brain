@@ -1,15 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
-
-const Nav = styled.nav`
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px;
-`
+import { Nav } from '../styles/Navigation.styles'
+import Logo from './Logo'
 
 const Navigation = () => {
   return (
     <Nav>
+      <Logo />
       <p>Sign Out</p>
     </Nav>
   )
