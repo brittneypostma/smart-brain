@@ -1,4 +1,8 @@
-import { combineReducers } from '@reduxjs/toolkit';
-import sectionSlice from './sectionSlice';
+import { combineReducers } from '@reduxjs/toolkit'
+import userReducer from './userSlice'
+import imageReducer from './imageSlice'
 
-export default combineReducers({ sectionSlice })
+export default combineReducers({
+  user: userReducer,
+  image: imageReducer
+})
