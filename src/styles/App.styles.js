@@ -35,6 +35,7 @@ export const Content = styled.div`
 
 export const Main = styled.div`
   display: grid;
+  align-self: flex-start;
   align-items: center;
   align-content: center;
 `
