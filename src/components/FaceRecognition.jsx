@@ -25,12 +25,16 @@ const FaceRecognition = () => {
   }
 
   useEffect(() => {
+    setHeight(0)
+    setWidth(0)
     if (img) {
       setHeight(Number(img.height))
       setWidth(Number(img.width))
     }
     setCoords(doTheMath(width, height))
   }, [img, width, height])
+
+  console.log(width, height)
 
   return (
     <Container>
