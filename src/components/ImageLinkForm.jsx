@@ -1,18 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Form, Input, Button } from '../styles/ImageLinkForm.styles'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchApi } from '../redux/imageSlice'
+import { useDispatch } from 'react-redux'
+import { sendImage, setImageUrl } from '../redux/imageSlice'
+
 const ImageLinkForm = () => {
+  const [input, setInput] = useState('')
+
   const dispatch = useDispatch()
 
-  const handleDetect = e => {
-    dispatch(fetchApi(e.target.value))
+  const handleDetect = () => {
+    dispatch(setImageUrl(input))
+    dispatch(sendImage(input))
   }
+
 
   return (
     <Container>
       <Form>
-        <Input type='text' />
+        <Input type='text' onChange={e => setInput(e.target.value)} />
         <Button onClick={handleDetect}>Detect</Button>
       </Form>
     </Container>

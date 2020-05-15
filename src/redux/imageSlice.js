@@ -1,7 +1,16 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { postImage } from '../api/imageApi'
+
+export const sendImage = createAsyncThunk(
+  'image/sendImage',
+  async (imageUrl, thunkAPI) => {
+    const response = await postImage(imageUrl)
+    return response
+  }
+)
 
 const imageSlice = createSlice({
-  name: 'user',
+  name: 'image',
   initialState: {
     loading: false,
     hasError: false,
@@ -25,11 +34,21 @@ const imageSlice = createSlice({
       state.loading = false
       state.hasError = true
     },
-    getFaceLocation: (state, { payload }) => {
-      // const clarifaiFace =
-      // data.outputs[0].data.regions[0].region_info.bounding_box
-    },
-    setImageUrl: (state, { payload }) => {}
+    setImageUrl: (state, { payload }) => {
+      state.imageUrl = payload
+    }
+  },
+  extraReducers: {
+    [sendImage.fulfilled]: (state, { payload }) => {
+      let {top_row, right_col, bottom_row, left_col} = payload['outputs'][0]['data']['regions'][0]['region_info']['bounding_box']
+      state.box = {
+        top: top_row,
+        right: right_col,
+        bottom: bottom_row,
+        left: left_col
+      }
+  
+    }
   }
 })
 
@@ -39,33 +58,7 @@ export const {
   getImage,
   getImageFailure,
   getImageSuccess,
-  getFaceLocation
+  setImageUrl
 } = actions
 
 export default reducer
-
-export function fetchApi(imageUrl) {
-  return async dispatch => {
-    dispatch(getImage())
-    try {
-      const imageFetch = await fetch(
-        'https://smart-brain-backend-bdesigned.herokuapp.com/imageurl',
-        {
-          method: 'post',
-          mode: 'cors',
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-          },
-          body: JSON.stringify({
-            input: imageUrl
-          })
-        }
-      )
-      const data = await imageFetch.json()
-      dispatch(getImageSuccess(data))
-    } catch {
-      dispatch(getImageFailure)
-    }
-  }
-}
