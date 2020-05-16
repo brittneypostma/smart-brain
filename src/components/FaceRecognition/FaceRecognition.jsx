@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Content, Img, Box } from '../styles/FaceRecognition.styles'
+import { Container, Content, Img, Box } from './styles'
 import { useSelector } from 'react-redux'
 
 const FaceRecognition = () => {

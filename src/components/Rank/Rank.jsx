@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Black } from '../styles/Rank.styles'
+import { Container, Black } from './styles'
 
 const Rank = () => {
   return (

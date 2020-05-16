@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Container, Form, Input, Button } from '../styles/ImageLinkForm.styles'
+import { Container, Form, Input, Button } from './styles'
 import { useDispatch } from 'react-redux'
-import { sendImage, setImageUrl } from '../redux/imageSlice'
+import { sendImage, setImageUrl } from '../../redux/imageSlice'
 
 const ImageLinkForm = () => {
   const [input, setInput] = useState('')
