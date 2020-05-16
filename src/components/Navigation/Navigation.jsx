@@ -1,11 +1,9 @@
 import React from 'react'
-import { Nav } from '../styles/Navigation.styles'
-import Logo from './Logo'
+import { Nav } from './styles'
 
 const Navigation = () => {
   return (
     <Nav>
-      <Logo />
       <p>Sign Out</p>
     </Nav>
   )
