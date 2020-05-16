@@ -1,28 +1,20 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Content, Img, Box } from './styles'
+import { Container, Img, Box } from './styles'
 import { useSelector } from 'react-redux'
 
 const FaceRecognition = () => {
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
   const [img, setImg] = useState(null)
-  const [coords, setCoords] = useState({})
 
-  const imgCoords = useSelector(state => state.image.box)
+  const boundingBoxes = useSelector(state => state.image.boxes)
   const url = useSelector(state => state.image.imageUrl)
-
+  const imageLoaded = useSelector(state => state.image.isLoaded)
   useEffect(() => {
     setImg(document.querySelector('.inputImage'))
-  }, [imgCoords])
+  }, [imageLoaded])
 
-  const doTheMath = (width, height) => {
-    return {
-      top: imgCoords.top * height,
-      right: width - imgCoords.right * width,
-      bottom: height - imgCoords.bottom * height,
-      left: imgCoords.left * width
-    }
-  }
+
 
   useEffect(() => {
     setHeight(0)
@@ -31,26 +23,22 @@ const FaceRecognition = () => {
       setHeight(Number(img.height))
       setWidth(Number(img.width))
     }
-    setCoords(doTheMath(width, height))
+    // setCoords(doTheMath(width, height))
   }, [img, width, height])
 
   console.log(width, height)
 
   return (
     <Container>
-      <Content>
-        {imgCoords.top === 0 ? null : (
-          <>
-            <Img className='inputImage' src={url} alt='image' />
+        <Img className='inputImage' src={url} alt='image' />
+        {boundingBoxes.map(boundingBox =>
             <Box
-              top={coords.top}
-              right={coords.right}
-              bottom={coords.bottom}
-              left={coords.left}
+              top={boundingBox.top * height}
+              right={width - boundingBox.right * width}
+              bottom={boundingBox.bottom * height}
+              left={boundingBox.left * width}
             />
-          </>
         )}
-      </Content>
     </Container>
   )
 }

@@ -1,26 +1,13 @@
-import React, { useState } from 'react'
-import Navigation from './components/Navigation/Navigation'
-import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm'
-import FaceRecognition from './components/FaceRecognition/FaceRecognition'
-import Rank from './components/Rank/Rank'
-import {
-  Container,
-  Content,
-  Main,
-} from './App.styles'
+import React from 'react'
+import MainPage from './pages/MainPage';
+import store from './redux/store'
+import { Provider } from 'react-redux'
 
 function App() {
   return (
-    <Container>
-      <Content>
-        <Navigation />
-        <Main>
-          <Rank />
-          <ImageLinkForm />
-          <FaceRecognition />
-        </Main>
-      </Content>
-    </Container>
+    <Provider store={store}>
+      <MainPage />
+    </Provider>
   )
 }
 
