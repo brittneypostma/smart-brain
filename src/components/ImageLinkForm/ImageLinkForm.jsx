@@ -9,10 +9,11 @@ const ImageLinkForm = () => {
   const dispatch = useDispatch()
 
   const handleDetect = () => {
-    dispatch(setImageUrl(input))
-    dispatch(sendImage(input))
+    if (input !== '') {
+      dispatch(setImageUrl(input))
+      dispatch(sendImage(input))
+    }
   }
-
 
   return (
     <Container>

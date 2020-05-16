@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  display: grid;
-  justify-content: center;
+  width: 100%;
 `
 
 export const Form = styled.div`
@@ -31,6 +30,9 @@ export const Form = styled.div`
 export const Input = styled.input`
   height: 35px;
   width: 100%;
+  border-radius: 2px;
+  box-shadow: inset 0 0 5px 2px rgba(7, 7, 7, 0.3);
+  background: #fff;
 `
 
 export const Button = styled.button`
@@ -38,7 +40,18 @@ export const Button = styled.button`
   outline: none;
   margin-left: 10px;
   border: none;
-  color: white;
   font-weight: bold;
-  background-color: #3eb0df;
+  color: white;
+  border-radius: 2px;
+  background-color: rgb(65, 86, 107);
+  transition: transform 0.2s linear;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
 `

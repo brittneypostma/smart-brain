@@ -29,7 +29,7 @@ export const particleParams = {
 
 export const Content = styled.div`
   display: grid;
-  grid-template-rows: 200px 1fr;
+  grid-template-rows: 100px 1fr;
   height: 100%;
 `
 
