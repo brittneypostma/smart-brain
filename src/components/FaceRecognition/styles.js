@@ -15,6 +15,7 @@ export const Content = styled.div`
 
 
 export const Img = styled.img`
+  box-sizing: border-box;
   width: 500px;
   height: auto;
 `
