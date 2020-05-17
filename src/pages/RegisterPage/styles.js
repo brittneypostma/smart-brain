@@ -8,12 +8,12 @@ export const Container = styled.div`
 `
 
 export const Field = styled.fieldset`
-  padding: 35px;
-  text-align: center;
-  font-weight: bold;
+  padding: 55px 75px;
+
   font-size: ${props => props.theme.fontSize.large};
   color: ${props => props.theme.colors.darkest};
-  border: 2px solid ${props => props.theme.colors.blue};
+  border: 2px dashed ${props => props.theme.colors.lightBlue};
+  border-radius: 3px 3px 50px 50px;
 `
 
 export const Label = styled.label`
@@ -23,6 +23,8 @@ export const Label = styled.label`
 `
 
 export const Legend = styled.legend`
+  font-weight: bold;
+  margin-left: -38px;
   font-size: ${props => props.theme.fontSize.extraLarge};
 `
 export const FormContainer = styled.div`

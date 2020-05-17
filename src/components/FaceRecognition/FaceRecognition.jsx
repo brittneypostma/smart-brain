@@ -12,6 +12,7 @@ const FaceRecognition = () => {
 
   useEffect(() => {
     setImg(document.getElementById('inputImage'))
+    console.log('here', imageLoaded, img)
     if (img) {
       const compStyles = window.getComputedStyle(img)
       setHeight(Number(compStyles.height.replace('px', '')))

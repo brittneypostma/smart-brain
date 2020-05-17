@@ -23,6 +23,7 @@ const RegisterPage = () => {
             <FormContainer>
               <Label>Name:</Label>
               <Input
+                style={{ color: '#D7F6F6' }}
                 name='name'
                 type='text'
                 defaultValue='test'
@@ -31,6 +32,7 @@ const RegisterPage = () => {
 
               <Label>Email:</Label>
               <Input
+                style={{ color: '#D7F6F6' }}
                 name='email'
                 type='email'
                 ref={register({ required: true })}
@@ -38,6 +40,7 @@ const RegisterPage = () => {
 
               <Label>Password:</Label>
               <Input
+                style={{ color: '#D7F6F6' }}
                 name='password'
                 type='password'
                 ref={register({ required: true })}
