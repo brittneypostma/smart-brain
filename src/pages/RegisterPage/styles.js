@@ -7,52 +7,61 @@ export const Container = styled.div`
   justify-content: center;
 `
 
-// export const Content = styled.div`
-//   display: grid;
-//   grid-template-rows: 100px 1fr;
-//   height: 100%;
-// `
-
-// export const Main = styled.div`
-//   display: grid;
-//   align-self: flex-start;
-//   align-items: center;
-//   align-content: center;
-// `
-
-export const RegisterForm = styled.form``
-
 export const Field = styled.fieldset`
+  padding: 25px;
+  text-align: center;
+  font-weight: bold;
+  font-size: ${props => props.theme.fontSize.large};
+  color: ${props => props.theme.colors.darkest};
+  border: 2px dotted ${props => props.theme.colors.blue};
+`
+
+export const Label = styled.label`
+  text-align: left;
+  color: ${props => props.theme.colors.lightBlue};
+  font-size: ${props => props.theme.fontSize.small};
+`
+
+export const Legend = styled.legend`
+  font-size: ${props => props.theme.fontSize.extraLarge};
+`
+export const FormContainer = styled.div`
   display: grid;
-  justify-content: center;
-  align-items: center;
   grid-gap: 10px;
 `
 
 export const Input = styled.input`
   background-color: transparent;
   border-radius: 2px;
-  border: 1px solid white;
+  border: 1px solid ${props => props.theme.colors.darkest};
   padding: 10px;
-  font-size: 1.5vh;
+  font-size: ${props => props.theme.fontSize.medium};
+  color: ${props => props.theme.fontSize.lightBlue};
+  outline: 1px solid ${props => props.theme.colors.darkGray};
+
+  &:focus {
+    border: 1px solid ${props => props.theme.colors.blue};
+  }
 `
 
 export const SubmitButton = styled.button`
-  background-color: white;
-  color: rgb(65, 86, 107);
+  background-color: ${props => props.theme.colors.blue};
+  color: ${props => props.theme.colors.darkest};
   border-radius: 2px;
   padding: 10px;
   outline: none;
-  border: 1px solid white;
-  font-size: 2vh;
-  transition: box-shadow 0.1s linear;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  font-size: ${props => props.theme.fontSize.medium};
+  box-shadow: 2px 4px 10px rgba(65, 86, 107, 0.7),
+    -2px 4px 10px rgba(65, 86, 107, 0.7);
+  transition: all 0.4s ease-in-out;
+  border: 1px solid ${props => props.theme.colors.blue};
 
   &:hover {
     box-shadow: none;
   }
 
   &:active {
-    background-color: #eee;
+    border: 1px solid ${props => props.theme.colors.teal};
+    background-color: ${props => props.theme.colors.teal};
   }
 `

@@ -2,11 +2,12 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import {
   Container,
-  Content,
-  Main,
   Field,
+  Legend,
+  FormContainer,
   Input,
-  SubmitButton
+  SubmitButton,
+  Label
 } from './styles.js'
 import { Card } from '../PageStyles'
 
@@ -18,21 +19,33 @@ const RegisterPage = () => {
       <Card>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Field>
-            <legend>Register</legend>
-            <Input name='name' type='text' defaultValue='test' ref={register} />
-            <Input
-              name='email'
-              type='email'
-              ref={register({ required: true })}
-            />
-            <Input
-              name='password'
-              type='password'
-              ref={register({ required: true })}
-            />
-            {errors.exampleRequired && <span>This field is required</span>}
+            <Legend>Register</Legend>
+            <FormContainer>
+              <Label>Name:</Label>
+              <Input
+                name='name'
+                type='text'
+                defaultValue='test'
+                ref={register}
+              />
 
-            <SubmitButton type='submit'>Button</SubmitButton>
+              <Label>Email:</Label>
+              <Input
+                name='email'
+                type='email'
+                ref={register({ required: true })}
+              />
+
+              <Label>Password:</Label>
+              <Input
+                name='password'
+                type='password'
+                ref={register({ required: true })}
+              />
+              {errors.exampleRequired && <span>This field is required</span>}
+
+              <SubmitButton type='submit'>Submit</SubmitButton>
+            </FormContainer>
           </Field>
         </form>
       </Card>
