@@ -8,12 +8,12 @@ export const Container = styled.div`
 `
 
 export const Field = styled.fieldset`
-  padding: 25px;
+  padding: 35px;
   text-align: center;
   font-weight: bold;
   font-size: ${props => props.theme.fontSize.large};
   color: ${props => props.theme.colors.darkest};
-  border: 2px dotted ${props => props.theme.colors.blue};
+  border: 2px solid ${props => props.theme.colors.blue};
 `
 
 export const Label = styled.label`
@@ -27,7 +27,7 @@ export const Legend = styled.legend`
 `
 export const FormContainer = styled.div`
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 15px;
 `
 
 export const Input = styled.input`
@@ -50,6 +50,9 @@ export const SubmitButton = styled.button`
   border-radius: 2px;
   padding: 10px;
   outline: none;
+  position: relative;
+  top: 15px;
+  margin-bottom: 20px;
   font-size: ${props => props.theme.fontSize.medium};
   box-shadow: 2px 4px 10px rgba(65, 86, 107, 0.7),
     -2px 4px 10px rgba(65, 86, 107, 0.7);
@@ -61,7 +64,7 @@ export const SubmitButton = styled.button`
   }
 
   &:active {
-    border: 1px solid ${props => props.theme.colors.teal};
-    background-color: ${props => props.theme.colors.teal};
+    border: 1px solid ${props => props.theme.colors.darkBlue};
+    background-color: ${props => props.theme.colors.darkBlue};
   }
 `

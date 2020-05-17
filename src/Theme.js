@@ -9,6 +9,7 @@ export const theme = {
     darkGray: 'rgb(62, 83, 104)',
     lightBlue: '#D7F6F6',
     blue: '#AFEEEE',
+    darkBlue: '#85CECB',
     teal: '#46CAC6'
   },
   fontSize: {
